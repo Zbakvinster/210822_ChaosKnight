@@ -1,4 +1,4 @@
-﻿namespace Game.Characters.AI
+﻿namespace Game.Characters.AI.Soldier
 {
     public class CSoldierAiCharacterController : CFightingAiCharacterController
     {

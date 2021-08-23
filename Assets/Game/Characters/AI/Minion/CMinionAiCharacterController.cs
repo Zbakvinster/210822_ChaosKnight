@@ -1,0 +1,19 @@
+﻿namespace Game.Characters.AI.Minion
+{
+    public class CMinionAiCharacterController : CFightingAiCharacterController
+    {
+        protected override void Start()
+        {
+            base.Start();
+            
+            CGameManager.Instance.AddChaosSide(this);
+        }
+
+        protected override void Update()
+        {
+            _target = CGameManager.Instance.GetClosesCityUnit(_cachedTransform.position);
+            
+            base.Update();
+        }
+    }
+}

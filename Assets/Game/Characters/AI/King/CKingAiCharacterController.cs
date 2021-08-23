@@ -1,7 +1,7 @@
 ﻿using Game.Characters.Player;
 using UnityEngine;
 
-namespace Game.Characters.AI
+namespace Game.Characters.AI.King
 {
     public class CKingAiCharacterController : CFightingAiCharacterController
     {
