@@ -6,13 +6,22 @@ namespace Game.Characters.Player
     {
         [SerializeField] private CharacterController _characterController;
 
-        public void MyUpdate(float deltaTime)
-        {
-            Vector3 direction = Vector3.ClampMagnitude(
-                Input.GetAxis("Vertical") * Vector3.forward + Input.GetAxis("Horizontal") * Vector3.right,
-                1);
+        private const float GRAVITY = 9.8f;
+        private float _fallSpeed;
 
-            _characterController.SimpleMove(direction * (_characterConfig.MovementSpeed * deltaTime));
+        public override void OnUpdate(float deltaTime)
+        {
+            if (_characterController.isGrounded)
+                _fallSpeed = 0;
+
+            _fallSpeed -= GRAVITY * deltaTime;
+            
+            Vector3 direction = Vector3.ClampMagnitude(
+                    Input.GetAxis("Vertical") * Vector3.forward + Input.GetAxis("Horizontal") * Vector3.right,
+                    1)
+                + new Vector3(0, _fallSpeed, 0);
+
+            _characterController.Move(direction * (_characterConfig.MovementSpeed * deltaTime));
         }
     }
 }

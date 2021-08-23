@@ -7,6 +7,6 @@ public class CGameManager : MonoBehaviour
 
     private void Update()
     {
-        _playerCharacterController.MyUpdate(Time.deltaTime);
+        _playerCharacterController.OnUpdate(Time.deltaTime);
     }
 }
