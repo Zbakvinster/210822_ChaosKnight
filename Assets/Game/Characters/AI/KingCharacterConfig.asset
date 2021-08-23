@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 0
   _dmg: 0
-  _damageDelay: 0
-  _restAttackAnimationDuration: 0
+  _damageDelay: 0.3
+  _restAttackAnimationDuration: 0.2

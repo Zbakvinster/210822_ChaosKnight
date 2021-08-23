@@ -16,4 +16,4 @@ MonoBehaviour:
   _dmg: 0
   _damageDelay: 0
   _restAttackAnimationDuration: 0
-  _movementSpeed: 0
+  _movementSpeed: 35

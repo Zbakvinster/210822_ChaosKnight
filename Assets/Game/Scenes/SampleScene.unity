@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 257869077}
   - component: {fileID: 257869076}
   - component: {fileID: 257869075}
+  - component: {fileID: 257869080}
   m_Layer: 0
   m_Name: King
   m_TagString: Untagged
@@ -154,10 +155,10 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 25
-  m_Acceleration: 100
+  m_Acceleration: 130
   avoidancePriority: 50
-  m_AngularSpeed: 999999
-  m_StoppingDistance: 0
+  m_AngularSpeed: 10000
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -177,7 +178,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89271cb96404282a65082a445ca1b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxHp: 100
+  _damage: 20
   _navMeshAgent: {fileID: 257869075}
+  _attackDelay: 0.3
+  _restAnimationDuration: 0.2
 --- !u!23 &257869077
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -242,6 +247,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &257869080
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257869074}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &283379326
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +374,6 @@ GameObject:
   - component: {fileID: 374332093}
   - component: {fileID: 374332092}
   - component: {fileID: 374332091}
-  - component: {fileID: 374332090}
   - component: {fileID: 374332089}
   - component: {fileID: 374332094}
   m_Layer: 0
@@ -377,20 +400,6 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &374332090
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 374332088}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &374332091
 MeshRenderer:
@@ -455,7 +464,7 @@ Transform:
   m_Children:
   - {fileID: 963194228}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &374332094
 MonoBehaviour:
@@ -469,8 +478,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9855cf96e9da9142bd7f921becbf57b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterConfig: {fileID: 11400000, guid: b49d5e0e82753c146ac8f6490d5ed846, type: 2}
+  _maxHp: 100
+  _damage: 0
   _characterController: {fileID: 374332089}
+  _movementSpeed: 35
 --- !u!1 &461390449
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,7 +609,7 @@ Transform:
   - {fileID: 1548270265}
   - {fileID: 693488369}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &693488368
 GameObject:

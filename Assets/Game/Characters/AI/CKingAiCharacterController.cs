@@ -2,27 +2,31 @@
 using System.Collections;
 using Game.Characters.Player;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Game.Characters.AI
 {
-    public class CKingAiCharacterController : CBaseAiCharacter
+    public class CKingAiCharacterController : CBaseCharacter
     {
-        private CPlayerCharacterController _player;
+        [SerializeField] private NavMeshAgent _navMeshAgent;
+        [SerializeField] private CPlayerCharacterController _player;
+        [SerializeField] private float _attackDelay;
+        [SerializeField] private float _restAnimationDuration;
+        
         private Transform _playerTransformCached;
         private Action _onUpdateAction;
         private float _stoppingDistanceSqrtCached;
         private Transform _transformCached;
 
-        public void Init(CPlayerCharacterController player)
+        public void Start()
         {
-            _player = player;
             _playerTransformCached = _player.transform;
             _onUpdateAction = GoAfterPlayer;
             _stoppingDistanceSqrtCached = Mathf.Pow(_navMeshAgent.stoppingDistance, 2);
             _transformCached = transform;
         }
         
-        public override void OnUpdate(float deltaTime)
+        public void Update()
         {
             _onUpdateAction?.Invoke();
         }
@@ -40,13 +44,13 @@ namespace Game.Characters.AI
 
         private IEnumerator Attack()
         {
-            // Play animation
+            // Play attack anim
 
-            yield return new WaitForSeconds(_characterConfig.DamageDelay);
-            
-            // attack
+            yield return new WaitForSeconds(_attackDelay);
 
-            yield return new WaitForSeconds(_characterConfig.RestAttackAnimationDuration);
+            _player.ApplyDamage(_damage);
+
+            yield return new WaitForSeconds(_restAnimationDuration);
 
             _onUpdateAction = GoAfterPlayer;
         }

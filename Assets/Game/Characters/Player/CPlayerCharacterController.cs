@@ -4,17 +4,18 @@ namespace Game.Characters.Player
 {
     public class CPlayerCharacterController : CBaseCharacter
     {
-        [SerializeField] private CPlayerCharacterConfig _characterConfig;
         [SerializeField] private CharacterController _characterController;
+        [SerializeField] private float _movementSpeed;
 
         private const float GRAVITY = 9.8f;
         private float _fallSpeed;
 
-        public override void OnUpdate(float deltaTime)
+        public void Update()
         {
             if (_characterController.isGrounded)
                 _fallSpeed = 0;
 
+            float deltaTime = Time.deltaTime;
             _fallSpeed -= GRAVITY * deltaTime;
             
             Vector3 direction = Vector3.ClampMagnitude(
@@ -22,7 +23,7 @@ namespace Game.Characters.Player
                     1)
                 + new Vector3(0, _fallSpeed, 0);
 
-            _characterController.Move(direction * (_characterConfig.MovementSpeed * deltaTime));
+            _characterController.Move(direction * (_movementSpeed * deltaTime));
         }
     }
 }
