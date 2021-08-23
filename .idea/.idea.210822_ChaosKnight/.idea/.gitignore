@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/modules.xml
+/projectSettingsUpdater.xml
+/contentModel.xml
+/.idea.210822_ChaosKnight.iml
+# Datasource local storage ignored files
+/../../../../../../:\GIT\210822_ChaosKnight\.idea\.idea.210822_ChaosKnight\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
