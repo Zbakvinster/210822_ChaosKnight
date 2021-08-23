@@ -119,6 +119,7 @@ MonoBehaviour:
   _damage: 0
   _characterController: {fileID: 6507539056364166590}
   _movementSpeed: 35
+  _rotationSpeed: 150
 --- !u!1 &6507539056886803062
 GameObject:
   m_ObjectHideFlags: 0
