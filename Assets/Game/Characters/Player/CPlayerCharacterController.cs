@@ -10,6 +10,13 @@ namespace Game.Characters.Player
         private const float GRAVITY = 9.8f;
         private float _fallSpeed;
 
+        protected override void Start()
+        {
+            base.Start();
+
+            CGameManager.Instance.AddChaosSide(this);
+        }
+
         public void Update()
         {
             if (_characterController.isGrounded)

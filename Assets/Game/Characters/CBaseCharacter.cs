@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Game.Characters
 {
@@ -10,7 +9,7 @@ namespace Game.Characters
         
         private float _actualHp;
 
-        private void Start()
+        protected virtual void Start()
         {
             _actualHp = _maxHp;
         }
