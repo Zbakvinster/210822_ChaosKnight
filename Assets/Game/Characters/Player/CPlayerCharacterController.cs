@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Game.Characters.Player
@@ -23,7 +24,6 @@ namespace Game.Characters.Player
         public void Update()
         {
             float deltaTime = Time.deltaTime;
-            _cameraFollowTarget.Rotate(Vector3.up, Input.GetAxis("Mouse X") * _rotationSpeed * deltaTime);
 
             if (_characterController.isGrounded)
                 _fallSpeed = 0;
@@ -40,6 +40,11 @@ namespace Game.Characters.Player
                 _cachedGraphicsTransform.forward = moveDirection;
             
             _characterController.Move(direction * (_movementSpeed * deltaTime));
+        }
+
+        private void LateUpdate()
+        {
+            _cameraFollowTarget.Rotate(Vector3.up, Input.GetAxis("Mouse X") * _rotationSpeed * Time.deltaTime);
         }
     }
 }
