@@ -4,7 +4,7 @@ namespace Game.Characters.Player
 {
     public class CPlayerCharacterController : CBaseCharacter
     {
-        [SerializeField] private CCharacterConfig _characterConfig;
+        [SerializeField] private CPlayerCharacterConfig _characterConfig;
         [SerializeField] private CharacterController _characterController;
 
         private const float GRAVITY = 9.8f;

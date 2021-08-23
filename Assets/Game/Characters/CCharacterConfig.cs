@@ -3,12 +3,14 @@
 namespace Game.Characters
 {
     [CreateAssetMenu(fileName = "CharacterConfig", menuName = "ScriptableObjects/CharacterConfig")]
-    public /*abstract*/ class CCharacterConfig : ScriptableObject
+    public class CCharacterConfig : ScriptableObject
     {
         [SerializeField] private float _maxHealth;
         [SerializeField] private float _dmg;
-        [SerializeField] private float _movementSpeed;
+        [SerializeField] private float _damageDelay;
+        [SerializeField] private float _restAttackAnimationDuration;
 
-        public float MovementSpeed => _movementSpeed;
+        public float DamageDelay => _damageDelay;
+        public float RestAttackAnimationDuration => _restAttackAnimationDuration;
     }
 }
