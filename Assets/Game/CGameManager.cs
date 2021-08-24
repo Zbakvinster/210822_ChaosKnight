@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Game.Characters;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ namespace Game
     public class CGameManager : MonoBehaviour
     {
         public static CGameManager Instance;
+        
+        public Action OnCityWin;
 
         private readonly List<CBaseCharacter> _chaosSide = new List<CBaseCharacter>();
         private readonly List<CBaseCharacter> _citySide = new List<CBaseCharacter>();
@@ -22,6 +25,8 @@ namespace Game
         public CBaseCharacter GetClosesChaosUnit(Vector3 position) => GetClosestUnit(_chaosSide, position);
         
         public CBaseCharacter GetClosesCityUnit(Vector3 position) => GetClosestUnit(_citySide, position);
+
+        public void CityWin() => OnCityWin?.Invoke();
 
         private void Awake()
         {

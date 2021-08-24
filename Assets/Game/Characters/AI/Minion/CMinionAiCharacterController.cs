@@ -7,6 +7,7 @@
             base.Start();
             
             CGameManager.Instance.AddChaosSide(this);
+            CGameManager.Instance.OnCityWin += () => _die?.Invoke();
             _onDeath = () => CGameManager.Instance.RemoveChaosSide(this);
         }
 

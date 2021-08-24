@@ -25,7 +25,11 @@ namespace Game.Characters.Player
             CGameManager.Instance.AddChaosSide(this);
             _dotAngle = Mathf.Cos(_attackAngle * Mathf.Deg2Rad);
             _onUpdateAction = OnUpdate;
-            _onDeath = () => CGameManager.Instance.RemoveChaosSide(this);
+            _onDeath = () =>
+            {
+                CGameManager.Instance.RemoveChaosSide(this);
+                CGameManager.Instance.CityWin();
+            };
 
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;

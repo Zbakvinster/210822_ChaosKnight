@@ -7,6 +7,11 @@
             base.Start();
             
             CGameManager.Instance.AddCitySide(this);
+            CGameManager.Instance.OnCityWin += () =>
+            {
+                _onUpdateAction = null;
+                StopAttackCoroutine();
+            };
             _onDeath = () => CGameManager.Instance.RemoveCitySide(this);
         }
 

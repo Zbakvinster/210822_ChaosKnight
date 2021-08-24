@@ -14,7 +14,7 @@ namespace Game.Characters
         
         private float _actualHp;
         protected Action _onUpdateAction;
-        private Action _die;
+        protected Action _die;
         protected Action _onDeath;
         protected Coroutine _attackCoroutine;
 
@@ -65,17 +65,22 @@ namespace Game.Characters
             _die = null;
             _onUpdateAction = null;
             _onDeath?.Invoke();
-            if (_attackCoroutine != null)
-            {
-                StopCoroutine(_attackCoroutine);
-                _attackCoroutine = null;
-            }
+            StopAttackCoroutine();
 
             // Play death anim
 
             yield return new WaitForSeconds(_deathDelay);
 
             Destroy(gameObject);
+        }
+
+        protected void StopAttackCoroutine()
+        {
+            if (_attackCoroutine != null)
+            {
+                StopCoroutine(_attackCoroutine);
+                _attackCoroutine = null;
+            }
         }
     }
 }
