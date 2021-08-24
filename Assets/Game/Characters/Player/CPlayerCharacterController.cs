@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 namespace Game.Characters.Player
@@ -25,6 +26,9 @@ namespace Game.Characters.Player
             _dotAngle = Mathf.Cos(_attackAngle * Mathf.Deg2Rad);
             _onUpdateAction = OnUpdate;
             _onDeath = () => CGameManager.Instance.RemoveChaosSide(this);
+
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         private void OnUpdate()

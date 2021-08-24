@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Game.Characters;
-using Game.Characters.Player;
 using UnityEngine;
 
 namespace Game
