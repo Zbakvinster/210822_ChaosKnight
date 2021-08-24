@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Game.Characters;
 using UnityEngine;
@@ -7,6 +8,9 @@ namespace Game
 {
     public class CGameManager : MonoBehaviour
     {
+        [SerializeField] private CGameOverController _gameOverController;
+        [SerializeField] private float _gameOverDelay;
+        
         public static CGameManager Instance;
         
         public Action OnCityWin;
@@ -26,7 +30,18 @@ namespace Game
         
         public CBaseCharacter GetClosesCityUnit(Vector3 position) => GetClosestUnit(_citySide, position);
 
-        public void CityWin() => OnCityWin?.Invoke();
+        public void CityWin()
+        {
+            OnCityWin?.Invoke();
+            StartCoroutine(GameOverTimer());
+        }
+
+        private IEnumerator GameOverTimer()
+        {
+            yield return new WaitForSeconds(_gameOverDelay);
+
+            _gameOverController.StartTransition();
+        }
 
         private void Awake()
         {

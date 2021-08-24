@@ -273,16 +273,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHp: 100
-  _damage: 1000
+  _damage: 200
   _attackDelay: 1
   _restAnimationDuration: 1
-  _deathDelay: 3
+  _deathDelay: 4
   _characterController: {fileID: 6507539056364166590}
   _cachedGraphicsTransform: {fileID: 5981790284941116708}
   _cameraFollowTarget: {fileID: 8329841859352084143}
   _movementSpeed: 20
   _rotationSpeed: 150
-  _attackRadius: 3
+  _attackRadius: 5
   _attackAngle: 60
 --- !u!143 &6507539056364166590
 CharacterController:
