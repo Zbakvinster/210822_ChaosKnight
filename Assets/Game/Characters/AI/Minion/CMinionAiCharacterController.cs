@@ -7,6 +7,7 @@
             base.Start();
             
             CGameManager.Instance.AddChaosSide(this);
+            _onDeath = () => CGameManager.Instance.RemoveChaosSide(this);
         }
 
         protected override void Update()

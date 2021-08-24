@@ -7,6 +7,7 @@
             base.Start();
             
             CGameManager.Instance.AddCitySide(this);
+            _onDeath = () => CGameManager.Instance.RemoveCitySide(this);
         }
 
         protected override void Update()

@@ -47,10 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9028da6aa3e34ea09bdc217072d011dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHp: 1500
-  _damage: 0
+  _maxHp: 15
+  _damage: 3
   _attackDelay: 0.5
   _restAnimationDuration: 0.5
+  _deathDelay: 3
   _navMeshAgent: {fileID: 1656951832781739918}
 --- !u!33 &1656951832781739916
 MeshFilter:

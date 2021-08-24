@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Game.Characters;
+using Game.Characters.Player;
 using UnityEngine;
 
 namespace Game
@@ -14,6 +15,10 @@ namespace Game
         public void AddChaosSide(CBaseCharacter unit) => _chaosSide.Add(unit);
         
         public void AddCitySide(CBaseCharacter unit) => _citySide.Add(unit);
+
+        public void RemoveChaosSide(CBaseCharacter unit) => _chaosSide.Remove(unit);
+        
+        public void RemoveCitySide(CBaseCharacter unit) => _citySide.Remove(unit);
 
         public CBaseCharacter GetClosesChaosUnit(Vector3 position) => GetClosestUnit(_chaosSide, position);
         

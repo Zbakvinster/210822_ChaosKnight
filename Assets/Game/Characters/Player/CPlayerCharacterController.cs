@@ -24,6 +24,7 @@ namespace Game.Characters.Player
             CGameManager.Instance.AddChaosSide(this);
             _dotAngle = Mathf.Cos(_attackAngle * Mathf.Deg2Rad);
             _onUpdateAction = OnUpdate;
+            _onDeath = () => CGameManager.Instance.RemoveChaosSide(this);
         }
 
         private void OnUpdate()
@@ -60,7 +61,7 @@ namespace Game.Characters.Player
                     0,
                     (1 << 9));
 
-                StartCoroutine(Attack(
+                _attackCoroutine = StartCoroutine(Attack(
                     () =>
                     {
                         for (int i = 0; i < targetCount; i++)

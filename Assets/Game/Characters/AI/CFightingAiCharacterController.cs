@@ -31,7 +31,7 @@ namespace Game.Characters.AI
 
             if ((_target.transform.position - _cachedTransform.position).sqrMagnitude < _cachedStoppingDistanceSqrt)
             {
-                StartCoroutine(Attack(_target, GoAfterTarget));
+                _attackCoroutine = StartCoroutine(Attack(_target, GoAfterTarget));
             }
             else
                 _navMeshAgent.SetDestination(_target.transform.position);

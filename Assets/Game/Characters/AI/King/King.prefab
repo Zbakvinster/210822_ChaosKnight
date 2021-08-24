@@ -48,10 +48,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89271cb96404282a65082a445ca1b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHp: 100
-  _damage: 0
+  _maxHp: 200
+  _damage: 10
   _attackDelay: 0.3
   _restAnimationDuration: 0.2
+  _deathDelay: 3
   _navMeshAgent: {fileID: 4966715460589521987}
   _player: {fileID: 0}
   _playerAggroDistance: 10

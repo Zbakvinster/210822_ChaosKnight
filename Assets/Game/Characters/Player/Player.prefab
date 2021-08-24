@@ -276,6 +276,7 @@ MonoBehaviour:
   _damage: 1000
   _attackDelay: 1
   _restAnimationDuration: 1
+  _deathDelay: 3
   _characterController: {fileID: 6507539056364166590}
   _cachedGraphicsTransform: {fileID: 5981790284941116708}
   _cameraFollowTarget: {fileID: 8329841859352084143}

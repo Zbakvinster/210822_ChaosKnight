@@ -49,9 +49,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHp: 20
-  _damage: 0
+  _damage: 5
   _attackDelay: 0.5
   _restAnimationDuration: 0.3
+  _deathDelay: 3
   _navMeshAgent: {fileID: 1378065105345300279}
 --- !u!33 &1378065105345300273
 MeshFilter:
