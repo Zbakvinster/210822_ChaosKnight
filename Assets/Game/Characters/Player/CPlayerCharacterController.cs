@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Game.Characters.Player
@@ -10,21 +9,27 @@ namespace Game.Characters.Player
         [SerializeField] private Transform _cameraFollowTarget;
         [SerializeField] private float _movementSpeed;
         [SerializeField] private float _rotationSpeed;
+        [SerializeField] private float _attackRadius;
+        [SerializeField] private float _attackAngle;
 
         private const float GRAVITY = 9.8f;
         private float _fallSpeed;
+        private readonly RaycastHit[] _targets = new RaycastHit[20];
+        private float _dotAngle;
 
         protected override void Start()
         {
             base.Start();
 
             CGameManager.Instance.AddChaosSide(this);
+            _dotAngle = Mathf.Cos(_attackAngle * Mathf.Deg2Rad);
         }
 
         public void Update()
         {
             float deltaTime = Time.deltaTime;
 
+            // MOVEMENT
             if (_characterController.isGrounded)
                 _fallSpeed = 0;
 
@@ -40,6 +45,28 @@ namespace Game.Characters.Player
                 _cachedGraphicsTransform.forward = moveDirection;
             
             _characterController.Move(direction * (_movementSpeed * deltaTime));
+            
+            
+            // ATTACK
+            if (Input.GetMouseButtonDown(0))
+            {
+                int targetCount = Physics.CapsuleCastNonAlloc(
+                    _cachedGraphicsTransform.position + Vector3.down,
+                    _cachedGraphicsTransform.position + Vector3.up,
+                    _attackRadius,
+                    Vector3.forward,
+                    _targets,
+                    0,
+                    (1 << 9));
+                for (int i = 0; i < targetCount; i++)
+                {
+                    if (Vector3.Dot(
+                            _cachedGraphicsTransform.forward,
+                            _targets[i].transform.position - _cachedGraphicsTransform.position)
+                        > _dotAngle)
+                        _targets[i].collider.GetComponent<CBaseCharacter>().ApplyDamage(_damage);
+                }
+            }
         }
 
         private void LateUpdate()

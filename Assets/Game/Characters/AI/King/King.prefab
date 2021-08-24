@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 4966715460589521988}
   - component: {fileID: 4966715460589521987}
   - component: {fileID: 4966715460589521992}
-  m_Layer: 0
+  - component: {fileID: 7070960315772541226}
+  m_Layer: 9
   m_Name: King
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89271cb96404282a65082a445ca1b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHp: 100
-  _damage: 20
+  _maxHp: 1000
+  _damage: 0
   _navMeshAgent: {fileID: 4966715460589521987}
   _attackDelay: 0.3
   _restAnimationDuration: 0.2
@@ -145,3 +146,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &7070960315772541226
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4966715460589521986}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

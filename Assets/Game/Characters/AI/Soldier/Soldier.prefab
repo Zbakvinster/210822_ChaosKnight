@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 1378065105345300279}
   - component: {fileID: 1378065105345300276}
   - component: {fileID: 1378065105345300277}
-  m_Layer: 0
+  - component: {fileID: 3439718244173592582}
+  m_Layer: 9
   m_Name: Soldier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +140,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHp: 20
-  _damage: 5
+  _damage: 0
   _navMeshAgent: {fileID: 1378065105345300279}
   _attackDelay: 0.5
   _restAnimationDuration: 0.3
+--- !u!136 &3439718244173592582
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378065105345300298}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

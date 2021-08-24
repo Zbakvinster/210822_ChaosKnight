@@ -19,6 +19,8 @@ namespace Game.Characters.AI
 
         protected override void Start()
         {
+            base.Start();
+            
             _cachedTransform = transform;
             _cachedStoppingDistanceSqrt = Mathf.Pow(_navMeshAgent.stoppingDistance, 2);
             
