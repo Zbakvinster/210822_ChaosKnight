@@ -56,7 +56,11 @@ namespace Game.Characters
 
         private IEnumerator OnDie()
         {
-            GetComponent<MeshRenderer>().material.color = Color.blue;
+#if UNITY_EDITOR
+            if (TryGetComponent(out MeshRenderer renderer))
+                renderer.material.color = Color.blue;
+#endif
+            
             
             _die = null;
             _onUpdateAction = null;
