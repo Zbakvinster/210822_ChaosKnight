@@ -23,9 +23,10 @@ namespace Game.Characters.Player
 
             CGameManager.Instance.AddChaosSide(this);
             _dotAngle = Mathf.Cos(_attackAngle * Mathf.Deg2Rad);
+            _onUpdateAction = OnUpdate;
         }
 
-        public void Update()
+        private void OnUpdate()
         {
             float deltaTime = Time.deltaTime;
 
@@ -58,14 +59,20 @@ namespace Game.Characters.Player
                     _targets,
                     0,
                     (1 << 9));
-                for (int i = 0; i < targetCount; i++)
-                {
-                    if (Vector3.Dot(
-                            _cachedGraphicsTransform.forward,
-                            _targets[i].transform.position - _cachedGraphicsTransform.position)
-                        > _dotAngle)
-                        _targets[i].collider.GetComponent<CBaseCharacter>().ApplyDamage(_damage);
-                }
+
+                StartCoroutine(Attack(
+                    () =>
+                    {
+                        for (int i = 0; i < targetCount; i++)
+                        {
+                            if (Vector3.Dot(
+                                    _cachedGraphicsTransform.forward,
+                                    _targets[i].transform.position - _cachedGraphicsTransform.position)
+                                > _dotAngle)
+                                _targets[i].collider.GetComponent<CBaseCharacter>().ApplyDamage(_damage);
+                        }
+                    },
+                    OnUpdate));
             }
         }
 

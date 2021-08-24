@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1656951832781739917}
+  - component: {fileID: 8202190812127352292}
   - component: {fileID: 1656951832781739916}
   - component: {fileID: 1656951832781739919}
   - component: {fileID: 1656951832781739918}
   - component: {fileID: 1656951832781739913}
-  - component: {fileID: 8202190812127352292}
   m_Layer: 0
   m_Name: Minion
   m_TagString: Untagged
@@ -35,6 +35,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8202190812127352292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656951832781739915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9028da6aa3e34ea09bdc217072d011dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHp: 1500
+  _damage: 0
+  _attackDelay: 0.5
+  _restAnimationDuration: 0.5
+  _navMeshAgent: {fileID: 1656951832781739918}
 --- !u!33 &1656951832781739916
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -126,20 +143,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8202190812127352292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1656951832781739915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9028da6aa3e34ea09bdc217072d011dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHp: 1500
-  _damage: 0
-  _navMeshAgent: {fileID: 1656951832781739918}
-  _attackDelay: 0.5
-  _restAnimationDuration: 0.5

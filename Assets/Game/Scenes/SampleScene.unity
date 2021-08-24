@@ -1844,7 +1844,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6507539056364166585, guid: bf12bdbe197113a449f4390fe2d74d9b, type: 3}
       propertyPath: _attackAngle
-      value: 45
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6507539056364166585, guid: bf12bdbe197113a449f4390fe2d74d9b, type: 3}
       propertyPath: _attackRadius
