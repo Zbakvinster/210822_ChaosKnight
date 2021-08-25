@@ -15,6 +15,8 @@ public class CGameOverController : MonoBehaviour
     [SerializeField] private float _cameraVerticalOffset;
     [SerializeField] private CinemachineVirtualCamera _cinemachineVirtualCamera;
     [SerializeField] private CinemachineBrain _cinemachineBrain;
+    [SerializeField] private GameObject _gameOverText;
+    [SerializeField] private float _gameOverTextDelay;
 
     public void StartTransition() => StartCoroutine(Transition());
 
@@ -38,5 +40,9 @@ public class CGameOverController : MonoBehaviour
         yield return new WaitForSeconds(_fadeInTime);
         
         _fadeIn.SetActive(false);
+
+        yield return new WaitForSeconds(_gameOverTextDelay);
+
+        _gameOverText.SetActive(true);
     }
 }
