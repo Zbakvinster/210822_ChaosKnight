@@ -1739,10 +1739,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1378065105345300277, guid: e8a63080fc068ae48b6f9b8722545e3a, type: 3}
-      propertyPath: _maxHp
-      value: 200
-      objectReference: {fileID: 0}
     - target: {fileID: 1378065105345300298, guid: e8a63080fc068ae48b6f9b8722545e3a, type: 3}
       propertyPath: m_Name
       value: Soldier (1)
@@ -2794,14 +2790,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6507539056364166585, guid: bf12bdbe197113a449f4390fe2d74d9b, type: 3}
-      propertyPath: _maxHp
-      value: 100000
-      objectReference: {fileID: 0}
-    - target: {fileID: 6507539056364166585, guid: bf12bdbe197113a449f4390fe2d74d9b, type: 3}
-      propertyPath: _damage
-      value: 2000
-      objectReference: {fileID: 0}
     - target: {fileID: 6507539056364166586, guid: bf12bdbe197113a449f4390fe2d74d9b, type: 3}
       propertyPath: m_RootOrder
       value: 6
