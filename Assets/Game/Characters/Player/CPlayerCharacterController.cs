@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 namespace Game.Characters.Player
@@ -17,7 +16,6 @@ namespace Game.Characters.Player
         private float _fallSpeed;
         private readonly RaycastHit[] _targets = new RaycastHit[20];
         private float _dotAngle;
-        private bool _isGameOver;
 
         protected override void Start()
         {
@@ -26,7 +24,6 @@ namespace Game.Characters.Player
             CGameManager.Instance.AddChaosSide(this);
             CGameManager.Instance.OnChaosWin += () =>
             {
-                _isGameOver = true;
                 _onUpdateAction = null;
                 StopAttackCoroutine();
             };
@@ -44,9 +41,6 @@ namespace Game.Characters.Player
 
         private void OnUpdate()
         {
-            if (_isGameOver)
-                return;
-            
             float deltaTime = Time.deltaTime;
 
             // MOVEMENT

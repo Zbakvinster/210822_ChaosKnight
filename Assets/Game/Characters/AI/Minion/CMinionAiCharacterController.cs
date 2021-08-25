@@ -8,11 +8,6 @@
             
             CGameManager.Instance.AddChaosSide(this);
             CGameManager.Instance.OnCityWin += () => _die?.Invoke();
-            CGameManager.Instance.OnChaosWin += () =>
-            {
-                _onUpdateAction = null;
-                StopAttackCoroutine();
-            };
             _onDeath = () =>
             {
                 CGameManager.Instance.RemoveChaosSide(this);

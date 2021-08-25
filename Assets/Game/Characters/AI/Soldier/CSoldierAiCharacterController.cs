@@ -2,6 +2,8 @@
 {
     public class CSoldierAiCharacterController : CFightingAiCharacterController
     {
+        private bool _isDead;
+
         protected override void Start()
         {
             base.Start();
@@ -16,6 +18,7 @@
             };
             _onDeath = () =>
             {
+                _isDead = true;
                 CGameManager.Instance.OnChaosWin -= OnChaosWin_Run;
                 CGameManager.Instance.RemoveCitySide(this);
                 _navMeshAgent.SetDestination(_cachedTransform.position);
@@ -23,8 +26,15 @@
 
             void OnChaosWin_Run()
             {
+                if (_isDead)
+                    return;
+                
                 StopAttackCoroutine();
-                _onUpdateAction = () => _navMeshAgent.destination = (_cachedTransform.position - CGameManager.Instance.Player.transform.position).normalized * (_navMeshAgent.stoppingDistance + 1) + _cachedTransform.position;
+                _onUpdateAction = ()
+                    => _navMeshAgent.destination
+                        = (_cachedTransform.position - CGameManager.Instance.Player.transform.position).normalized
+                          * (_navMeshAgent.stoppingDistance + 1)
+                          + _cachedTransform.position;
             }
         }
 

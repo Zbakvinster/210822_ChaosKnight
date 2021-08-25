@@ -1,12 +1,13 @@
 using System.Collections;
 using Cinemachine;
-using Game.Characters.Player;
 using UnityEngine;
 
 namespace Game.UI
 {
     public class CGameWinController : MonoBehaviour
     {
+        [SerializeField] private GameObject _cityDestroyed;
+        [SerializeField] private float _fadeOutDelay;
         [SerializeField] private GameObject _fadeOut;
         [SerializeField] private float _fadeOutTime;
         [SerializeField] private GameObject _fadeIn;
@@ -24,10 +25,15 @@ namespace Game.UI
 
         private IEnumerator Transition()
         {
+            _cityDestroyed.SetActive(true);
+
+            yield return new WaitForSeconds(_fadeOutDelay);
+            
             _fadeOut.SetActive(true);
 
             yield return new WaitForSeconds(_fadeOutTime);
 
+            _cityDestroyed.SetActive(false);
             _fadeOut.SetActive(false);
 
             _cinemachineVirtualCamera.enabled = false;
