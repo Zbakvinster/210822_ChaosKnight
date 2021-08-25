@@ -12,7 +12,7 @@ namespace Game.UI
         [SerializeField] private GameObject _fadeIn;
         [SerializeField] private float _fadeInTime;
         [SerializeField] private Camera _camera;
-        [SerializeField] private CPlayerCharacterController _chaosKnight;
+        [SerializeField] private Transform _chaosKnight;
         [SerializeField] private float _cameraHorizontalOffset;
         [SerializeField] private float _cameraVerticalOffset;
         [SerializeField] private CinemachineVirtualCamera _cinemachineVirtualCamera;
@@ -32,10 +32,10 @@ namespace Game.UI
 
             _cinemachineVirtualCamera.enabled = false;
             _cinemachineBrain.enabled = false;
-            _camera.transform.position = _chaosKnight.transform.position
-                                         + _chaosKnight.transform.forward * _cameraHorizontalOffset
+            _camera.transform.position = _chaosKnight.position
+                                         + _chaosKnight.forward * _cameraHorizontalOffset
                                          + Vector3.up * _cameraVerticalOffset;
-            _camera.transform.LookAt(_chaosKnight.transform);
+            _camera.transform.LookAt(_chaosKnight);
         
             _fadeIn.SetActive(true);
 

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Game.Characters;
+using Game.Characters.Player;
 using Game.UI;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace Game
 {
     public class CGameManager : MonoBehaviour
     {
+        [SerializeField] private CPlayerCharacterController _player;
         [SerializeField] private CGameOverController _gameOverController;
         [SerializeField] private float _gameOverDelay;
         [SerializeField] private CGameWinController _gameWinController;
@@ -21,6 +23,8 @@ namespace Game
 
         private readonly List<CBaseCharacter> _chaosSide = new List<CBaseCharacter>();
         private readonly List<CBaseCharacter> _citySide = new List<CBaseCharacter>();
+
+        public CPlayerCharacterController Player => _player;
 
         public void AddChaosSide(CBaseCharacter unit) => _chaosSide.Add(unit);
         
