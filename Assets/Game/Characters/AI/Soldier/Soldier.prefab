@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbe3a7fc28ce4c0f891e92c363284287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHp: 20
+  _maxHp: 200
   _damage: 5
   _attackDelay: 0.5
   _restAnimationDuration: 0.3

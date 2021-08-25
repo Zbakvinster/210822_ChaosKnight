@@ -272,8 +272,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9855cf96e9da9142bd7f921becbf57b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHp: 100
-  _damage: 200
+  _maxHp: 100000
+  _damage: 2000
   _attackDelay: 1
   _restAnimationDuration: 1
   _deathDelay: 4
