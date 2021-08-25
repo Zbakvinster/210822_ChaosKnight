@@ -17,12 +17,19 @@ namespace Game.Characters.Player
         private float _fallSpeed;
         private readonly RaycastHit[] _targets = new RaycastHit[20];
         private float _dotAngle;
+        private bool _isGameOver;
 
         protected override void Start()
         {
             base.Start();
 
             CGameManager.Instance.AddChaosSide(this);
+            CGameManager.Instance.OnChaosWin += () =>
+            {
+                _isGameOver = true;
+                _onUpdateAction = null;
+                StopAttackCoroutine();
+            };
             _dotAngle = Mathf.Cos(_attackAngle * Mathf.Deg2Rad);
             _onUpdateAction = OnUpdate;
             _onDeath = () =>
@@ -37,6 +44,9 @@ namespace Game.Characters.Player
 
         private void OnUpdate()
         {
+            if (_isGameOver)
+                return;
+            
             float deltaTime = Time.deltaTime;
 
             // MOVEMENT

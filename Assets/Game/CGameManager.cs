@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Game.Characters;
+using Game.UI;
 using UnityEngine;
 
 namespace Game
@@ -10,10 +11,13 @@ namespace Game
     {
         [SerializeField] private CGameOverController _gameOverController;
         [SerializeField] private float _gameOverDelay;
+        [SerializeField] private CGameWinController _gameWinController;
+        [SerializeField] private float _gameWinDelay;
         
         public static CGameManager Instance;
         
         public Action OnCityWin;
+        public Action OnChaosWin;
 
         private readonly List<CBaseCharacter> _chaosSide = new List<CBaseCharacter>();
         private readonly List<CBaseCharacter> _citySide = new List<CBaseCharacter>();
@@ -36,11 +40,24 @@ namespace Game
             StartCoroutine(GameOverTimer());
         }
 
+        public void ChaosWin()
+        {
+            OnChaosWin?.Invoke();
+            StartCoroutine(GameWinTimer());
+        }
+
         private IEnumerator GameOverTimer()
         {
             yield return new WaitForSeconds(_gameOverDelay);
 
             _gameOverController.StartTransition();
+        }
+
+        private IEnumerator GameWinTimer()
+        {
+            yield return new WaitForSeconds(_gameWinDelay);
+
+            _gameWinController.StartTransition();
         }
 
         private void Awake()

@@ -5,7 +5,7 @@ namespace Game.Characters.AI
 {
     public class CFightingAiCharacterController : CBaseCharacter
     {
-        [SerializeField] private NavMeshAgent _navMeshAgent;
+        [SerializeField] protected NavMeshAgent _navMeshAgent;
         
         protected CBaseCharacter _target;
         protected Transform _cachedTransform;

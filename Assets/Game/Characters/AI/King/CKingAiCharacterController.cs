@@ -23,7 +23,12 @@ namespace Game.Characters.AI.King
                 StopAttackCoroutine();
                 _isGameOver = true;
             };
-            _onDeath = () => CGameManager.Instance.RemoveCitySide(this);
+            _onDeath = () =>
+            {
+                CGameManager.Instance.RemoveCitySide(this);
+                CGameManager.Instance.ChaosWin();
+                _navMeshAgent.SetDestination(_cachedTransform.position);
+            };
         }
 
         protected override void Update()
