@@ -77,14 +77,20 @@ namespace Game.Characters.Player
             Vector3 direction = moveDirection + new Vector3(0, _fallSpeed, 0);
 
             if (moveDirection != Vector3.zero)
+            {
                 _cachedGraphicsTransform.forward = moveDirection;
+                _animationController.PlayRun(true);
+            }
+            else
+                _animationController.PlayRun(false);
             
             _characterController.Move(direction * (_movementSpeed * deltaTime));
-            
-            
+
             // ATTACK
             if (Input.GetMouseButtonDown(0))
             {
+                _animationController.PlayRun(false);
+                
                 int targetCount = Physics.CapsuleCastNonAlloc(
                     _cachedGraphicsTransform.position + Vector3.down,
                     _cachedGraphicsTransform.position + Vector3.up,
