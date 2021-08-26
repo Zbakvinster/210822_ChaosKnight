@@ -39,6 +39,27 @@ namespace Game.Characters.Player
             Cursor.lockState = CursorLockMode.Locked;
         }
 
+        protected override void Update()
+        {
+            base.Update();
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Cursor.visible = !Cursor.visible;
+                if (Cursor.visible)
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                    _onUpdateAction = null;
+                }
+                else
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                    _onUpdateAction = OnUpdate;
+                }
+                
+            }
+        }
+
         private void OnUpdate()
         {
             float deltaTime = Time.deltaTime;
@@ -91,7 +112,8 @@ namespace Game.Characters.Player
 
         private void LateUpdate()
         {
-            _cameraFollowTarget.Rotate(Vector3.up, Input.GetAxis("Mouse X") * _rotationSpeed * Time.deltaTime);
+            if (!Cursor.visible)
+                _cameraFollowTarget.Rotate(Vector3.up, Input.GetAxis("Mouse X") * _rotationSpeed * Time.deltaTime);
         }
     }
 }
