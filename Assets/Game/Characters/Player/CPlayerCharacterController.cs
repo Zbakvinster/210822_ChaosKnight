@@ -63,6 +63,9 @@ namespace Game.Characters.Player
         private void OnUpdate()
         {
             float deltaTime = Time.deltaTime;
+            
+            if (!Cursor.visible)
+                _cameraFollowTarget.Rotate(Vector3.up, Input.GetAxis("Mouse X") * _rotationSpeed * Time.deltaTime);
 
             // MOVEMENT
             if (_characterController.isGrounded)
@@ -114,12 +117,6 @@ namespace Game.Characters.Player
                     },
                     OnUpdate));
             }
-        }
-
-        private void LateUpdate()
-        {
-            if (!Cursor.visible)
-                _cameraFollowTarget.Rotate(Vector3.up, Input.GetAxis("Mouse X") * _rotationSpeed * Time.deltaTime);
         }
     }
 }
