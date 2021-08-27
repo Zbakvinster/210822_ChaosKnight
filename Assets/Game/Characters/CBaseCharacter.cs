@@ -7,6 +7,7 @@ namespace Game.Characters
     public abstract class CBaseCharacter : MonoBehaviour
     {
         [SerializeField] protected CAnimationController _animationController;
+        [SerializeField] private CHpBarController _hpBarController;
         [SerializeField] private float _maxHp;
         [SerializeField] protected float _damage;
         [SerializeField] private float _attackDelay;
@@ -25,6 +26,8 @@ namespace Game.Characters
                 _die?.Invoke();
             else
                 _animationController?.PlayTakeHit();
+
+            _hpBarController.UpdateUi(_actualHp / _maxHp);
         }
 
         protected virtual void Start()

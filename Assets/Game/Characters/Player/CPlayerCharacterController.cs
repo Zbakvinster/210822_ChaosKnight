@@ -42,6 +42,9 @@ namespace Game.Characters.Player
         protected override void Update()
         {
             base.Update();
+            
+            if (!Cursor.visible)
+                _cameraFollowTarget.Rotate(Vector3.up, Input.GetAxis("Mouse X") * _rotationSpeed * Time.deltaTime);
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -56,16 +59,12 @@ namespace Game.Characters.Player
                     Cursor.lockState = CursorLockMode.Locked;
                     _onUpdateAction = OnUpdate;
                 }
-                
             }
         }
 
         private void OnUpdate()
         {
             float deltaTime = Time.deltaTime;
-            
-            if (!Cursor.visible)
-                _cameraFollowTarget.Rotate(Vector3.up, Input.GetAxis("Mouse X") * _rotationSpeed * Time.deltaTime);
 
             // MOVEMENT
             if (_characterController.isGrounded)
