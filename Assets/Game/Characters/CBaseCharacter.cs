@@ -25,7 +25,7 @@ namespace Game.Characters
             if ((_actualHp -= damage) <= 0)
                 _die?.Invoke();
             else
-                _animationController?.PlayTakeHit();
+                _animationController.PlayTakeHit();
 
             _hpBarController.UpdateUi(_actualHp / _maxHp);
         }
@@ -48,7 +48,7 @@ namespace Game.Characters
         {
             _onUpdateAction = null;
 
-            _animationController?.PlayAttack(_attackDelay + _restAnimationDuration);
+            _animationController.PlayAttack(_attackDelay + _restAnimationDuration);
 
             yield return new WaitForSeconds(_attackDelay);
 
@@ -73,7 +73,7 @@ namespace Game.Characters
             _onDeath?.Invoke();
             StopAttackCoroutine();
 
-            _animationController?.PlayDie();
+            _animationController.PlayDie();
 
             yield return new WaitForSeconds(_deathDelay);
 
