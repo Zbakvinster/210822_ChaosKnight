@@ -42,7 +42,18 @@ namespace Game.Characters
         }
 
         protected IEnumerator Attack(CBaseCharacter target, Action onUpdateAfterAttack)
-            => Attack(() => target.ApplyDamage(_damage), onUpdateAfterAttack);
+        {
+            return Attack(
+                () =>
+                {
+                    target.ApplyDamage(_damage);
+                    
+                    Vector3 forwardVec = target.transform.position - transform.position;
+                    forwardVec.y = 0;
+                    transform.forward = forwardVec;
+                },
+                onUpdateAfterAttack);
+        }
 
         protected IEnumerator Attack(Action attackAction, Action onUpdateAfterAttack)
         {
