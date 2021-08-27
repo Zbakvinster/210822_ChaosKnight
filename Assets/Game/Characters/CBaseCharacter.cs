@@ -6,6 +6,8 @@ namespace Game.Characters
 {
     public abstract class CBaseCharacter : MonoBehaviour
     {
+        [SerializeField] protected CAnimationController _animationController;
+        [SerializeField] private CHpBarController _hpBarController;
         [SerializeField] private float _maxHp;
         [SerializeField] protected float _damage;
         [SerializeField] private float _attackDelay;
@@ -22,6 +24,10 @@ namespace Game.Characters
         {
             if ((_actualHp -= damage) <= 0)
                 _die?.Invoke();
+            else
+                _animationController.PlayTakeHit();
+
+            _hpBarController.UpdateUi(_actualHp / _maxHp);
         }
 
         protected virtual void Start()
@@ -36,13 +42,24 @@ namespace Game.Characters
         }
 
         protected IEnumerator Attack(CBaseCharacter target, Action onUpdateAfterAttack)
-            => Attack(() => target.ApplyDamage(_damage), onUpdateAfterAttack);
+        {
+            return Attack(
+                () =>
+                {
+                    target.ApplyDamage(_damage);
+                    
+                    Vector3 forwardVec = target.transform.position - transform.position;
+                    forwardVec.y = 0;
+                    transform.forward = forwardVec;
+                },
+                onUpdateAfterAttack);
+        }
 
         protected IEnumerator Attack(Action attackAction, Action onUpdateAfterAttack)
         {
             _onUpdateAction = null;
-            
-            // Play attack anim
+
+            _animationController.PlayAttack(_attackDelay + _restAnimationDuration);
 
             yield return new WaitForSeconds(_attackDelay);
 
@@ -67,7 +84,7 @@ namespace Game.Characters
             _onDeath?.Invoke();
             StopAttackCoroutine();
 
-            // Play death anim
+            _animationController.PlayDie();
 
             yield return new WaitForSeconds(_deathDelay);
 

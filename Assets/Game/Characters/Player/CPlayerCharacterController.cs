@@ -42,6 +42,9 @@ namespace Game.Characters.Player
         protected override void Update()
         {
             base.Update();
+            
+            if (!Cursor.visible)
+                _cameraFollowTarget.Rotate(Vector3.up, Input.GetAxis("Mouse X") * _rotationSpeed * Time.deltaTime);
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -56,7 +59,6 @@ namespace Game.Characters.Player
                     Cursor.lockState = CursorLockMode.Locked;
                     _onUpdateAction = OnUpdate;
                 }
-                
             }
         }
 
@@ -77,14 +79,20 @@ namespace Game.Characters.Player
             Vector3 direction = moveDirection + new Vector3(0, _fallSpeed, 0);
 
             if (moveDirection != Vector3.zero)
+            {
                 _cachedGraphicsTransform.forward = moveDirection;
+                _animationController.PlayRun(true);
+            }
+            else
+                _animationController.PlayRun(false);
             
             _characterController.Move(direction * (_movementSpeed * deltaTime));
-            
-            
+
             // ATTACK
             if (Input.GetMouseButtonDown(0))
             {
+                _animationController.PlayRun(false);
+                
                 int targetCount = Physics.CapsuleCastNonAlloc(
                     _cachedGraphicsTransform.position + Vector3.down,
                     _cachedGraphicsTransform.position + Vector3.up,
@@ -108,12 +116,6 @@ namespace Game.Characters.Player
                     },
                     OnUpdate));
             }
-        }
-
-        private void LateUpdate()
-        {
-            if (!Cursor.visible)
-                _cameraFollowTarget.Rotate(Vector3.up, Input.GetAxis("Mouse X") * _rotationSpeed * Time.deltaTime);
         }
     }
 }
