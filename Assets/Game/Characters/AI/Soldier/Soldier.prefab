@@ -68,6 +68,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b1a8aa9aa30a5c9489254cbc8b2af365, type: 3}
   - {fileID: 8300000, guid: 800fa3cbf14c7324b9f82a04e14355f2, type: 3}
   - {fileID: 8300000, guid: 1bcd1e9e019445d4ba92b07ac5681905, type: 3}
+  _deathSfx:
+  - {fileID: 8300000, guid: 754db7fccd83e4444a9f78257ac09659, type: 3}
   _maxHp: 200
   _damage: 5
   _attackDelay: 0.5
@@ -130,10 +132,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 3
+  MaxDistance: 70
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -166,7 +168,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

@@ -12,6 +12,7 @@ namespace Game.Characters
         [SerializeField] private CHpBarController _hpBarController;
         [SerializeField] protected AudioSource _impactAudioSource;
         [SerializeField] protected List<AudioClip> _attackImpactSfx;
+        [SerializeField] protected List<AudioClip> _deathSfx;
         [SerializeField] private float _maxHp;
         [SerializeField] protected float _damage;
         [SerializeField] private float _attackDelay;
@@ -90,6 +91,9 @@ namespace Game.Characters
             _onUpdateAction = null;
             _onDeath?.Invoke();
             StopAttackCoroutine();
+
+            _impactAudioSource.clip = _deathSfx[Random.Range(0, _deathSfx.Count)];
+            _impactAudioSource.Play();
 
             _animationController.PlayDie();
 
