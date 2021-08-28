@@ -12,12 +12,17 @@ namespace Game.Characters
         private static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
         private static readonly int TakeHit = Animator.StringToHash("TakeHit");
         private static readonly int Die = Animator.StringToHash("Die");
+        private static readonly int IsDead = Animator.StringToHash("IsDead");
 
         public void PlayRun(bool play) => _animator.SetBool(IsRunning, play);
 
         public void PlayTakeHit() => _animator.SetTrigger(TakeHit);
 
-        public void PlayDie() => _animator.SetTrigger(Die);
+        public void PlayDie()
+        {
+            _animator.SetTrigger(Die);
+            _animator.SetBool(IsDead, true);
+        }
 
         public void PlayAttack(float attackTime)
         {
