@@ -92,19 +92,20 @@ namespace Game.Characters.Player
             if (Input.GetMouseButtonDown(0))
             {
                 _animationController.PlayRun(false);
-                
-                int targetCount = Physics.CapsuleCastNonAlloc(
-                    _cachedGraphicsTransform.position + Vector3.down,
-                    _cachedGraphicsTransform.position + Vector3.up,
-                    _attackRadius,
-                    Vector3.forward,
-                    _targets,
-                    0,
-                    (1 << 9));
+                _cachedGraphicsTransform.forward = _cameraFollowTarget.forward;
 
                 _attackCoroutine = StartCoroutine(Attack(
                     () =>
                     {
+                        int targetCount = Physics.CapsuleCastNonAlloc(
+                            _cachedGraphicsTransform.position + Vector3.down,
+                            _cachedGraphicsTransform.position + Vector3.up,
+                            _attackRadius,
+                            Vector3.forward,
+                            _targets,
+                            0,
+                            (1 << 9));
+                        
                         for (int i = 0; i < targetCount; i++)
                         {
                             if (Vector3.Dot(
