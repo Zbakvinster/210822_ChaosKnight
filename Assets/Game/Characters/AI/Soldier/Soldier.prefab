@@ -76,6 +76,7 @@ MonoBehaviour:
   _restAnimationDuration: 0.3
   _deathDelay: 3
   _navMeshAgent: {fileID: 1378065105345300279}
+  _aggroDistance: 180
 --- !u!195 &1378065105345300279
 NavMeshAgent:
   m_ObjectHideFlags: 0

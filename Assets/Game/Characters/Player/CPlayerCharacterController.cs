@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 namespace Game.Characters.Player
@@ -14,11 +15,14 @@ namespace Game.Characters.Player
         [SerializeField] private float _rotationSpeed;
         [SerializeField] private float _attackRadius;
         [SerializeField] private float _attackAngle;
+        [SerializeField] private float _minCameraAngle;
+        [SerializeField] private float _maxCameraAngle;
 
         private const float GRAVITY = 9.8f;
         private float _fallSpeed;
         private readonly RaycastHit[] _targets = new RaycastHit[20];
         private float _dotAngle;
+        private float _cachedCamRotX;
 
         protected override void Start()
         {
@@ -47,7 +51,20 @@ namespace Game.Characters.Player
             base.Update();
             
             if (!Cursor.visible)
-                _cameraFollowTarget.Rotate(Vector3.up, Input.GetAxis("Mouse X") * _rotationSpeed * Time.deltaTime);
+            {
+                Vector3 camRot = _cameraFollowTarget.eulerAngles;
+                camRot.y += Input.GetAxis("Mouse X") * _rotationSpeed * Time.deltaTime;
+
+                _cachedCamRotX = Mathf.Clamp(
+                    _cachedCamRotX -= Input.GetAxis("Mouse Y") * _rotationSpeed * Time.deltaTime,
+                    _minCameraAngle,
+                    _maxCameraAngle);
+                Debug.Log(_cachedCamRotX);
+                
+                camRot.x = _cachedCamRotX;
+                
+                _cameraFollowTarget.eulerAngles = camRot;
+            }
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -76,7 +93,7 @@ namespace Game.Characters.Player
             _fallSpeed -= GRAVITY * deltaTime;
 
             Vector3 moveDirection = Vector3.ClampMagnitude(
-                Input.GetAxis("Vertical") * _cameraFollowTarget.forward
+                Input.GetAxis("Vertical") * GetCameraForward()
                     + Input.GetAxis("Horizontal") * _cameraFollowTarget.right,
                 1);
             Vector3 direction = moveDirection + new Vector3(0, _fallSpeed, 0);
@@ -95,7 +112,8 @@ namespace Game.Characters.Player
             if (Input.GetMouseButtonDown(0))
             {
                 _animationController.PlayRun(false);
-                _cachedGraphicsTransform.forward = _cameraFollowTarget.forward;
+                
+                _cachedGraphicsTransform.forward = GetCameraForward();
 
                 _attackCoroutine = StartCoroutine(Attack(
                     () =>
@@ -122,6 +140,14 @@ namespace Game.Characters.Player
                         }
                     },
                     OnUpdate));
+            }
+            
+            Vector3 GetCameraForward()
+            {
+            
+                Vector3 camForward = _cameraFollowTarget.forward;
+                camForward.y = 0;
+                return camForward.normalized;
             }
         }
     }

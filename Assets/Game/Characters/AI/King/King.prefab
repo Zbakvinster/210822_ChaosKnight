@@ -250,6 +250,7 @@ MonoBehaviour:
   _restAnimationDuration: 0.2
   _deathDelay: 3
   _navMeshAgent: {fileID: 4966715460589521987}
+  _aggroDistance: 150
   _player: {fileID: 0}
   _playerAggroDistance: 10
 --- !u!195 &4966715460589521987

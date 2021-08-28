@@ -18,7 +18,8 @@
         protected override void Update()
         {
             _target = CGameManager.Instance.GetClosesCityUnit(_cachedTransform.position);
-            
+            _startingPosition = CGameManager.Instance.Player.transform.position;
+
             base.Update();
         }
     }
