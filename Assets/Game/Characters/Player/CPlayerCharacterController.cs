@@ -136,11 +136,14 @@ namespace Game.Characters.Player
                         
                         for (int i = 0; i < targetCount; i++)
                         {
-                            if (Vector3.Dot(
-                                    _cachedGraphicsTransform.forward,
-                                    _targets[i].transform.position - _cachedGraphicsTransform.position)
+                            Vector3 targetDirection = _targets[i].transform.position - _cachedGraphicsTransform.position;
+                            targetDirection.y = 0;
+                            targetDirection = targetDirection.normalized;
+                            if (Vector3.Dot(_cachedGraphicsTransform.forward, targetDirection)
                                 > _dotAngle)
-                                _targets[i].collider.GetComponent<CBaseCharacter>().ApplyDamage(_damage, _attackImpactSfx[Random.Range(0, _attackImpactSfx.Count)]);
+                                _targets[i].collider.GetComponent<CBaseCharacter>().ApplyDamage(
+                                    _damage,
+                                    _attackImpactSfx[Random.Range(0, _attackImpactSfx.Count)]);
                         }
                     },
                     OnUpdate));
