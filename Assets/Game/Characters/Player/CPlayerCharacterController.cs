@@ -51,9 +51,9 @@ namespace Game.Characters.Player
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-        protected override void Update()
+        public override void MyUpdate()
         {
-            base.Update();
+            base.MyUpdate();
             
             if (!Cursor.visible)
             {

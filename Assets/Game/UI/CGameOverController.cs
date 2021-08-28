@@ -30,12 +30,13 @@ namespace Game.UI
 
             _fadeOut.SetActive(false);
 
-            _cinemachineVirtualCamera.enabled = false;
-            _cinemachineBrain.enabled = false;
+            // _cinemachineVirtualCamera.enabled = false;
+            // _cinemachineBrain.enabled = false;
             _camera.transform.position = _king.transform.position
                                          + _king.transform.forward * _cameraHorizontalOffset
                                          + Vector3.up * _cameraVerticalOffset;
             _camera.transform.LookAt(_king.transform);
+            _camera.gameObject.SetActive(true);
 
             _fadeIn.SetActive(true);
 

@@ -15,12 +15,12 @@
             };
         }
 
-        protected override void Update()
+        public override void MyUpdate()
         {
             _target = CGameManager.Instance.GetClosesCityUnit(_cachedTransform.position);
             _startingPosition = CGameManager.Instance.Player.transform.position;
 
-            base.Update();
+            base.MyUpdate();
         }
     }
 }

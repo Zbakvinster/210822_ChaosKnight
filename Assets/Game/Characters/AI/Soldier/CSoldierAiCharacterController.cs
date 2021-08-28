@@ -1,7 +1,11 @@
-﻿namespace Game.Characters.AI.Soldier
+﻿using UnityEngine;
+
+namespace Game.Characters.AI.Soldier
 {
     public class CSoldierAiCharacterController : CFightingAiCharacterController
     {
+        [SerializeField] private Collider _collider;
+        
         private bool _isDead;
 
         protected override void Start()
@@ -19,6 +23,7 @@
             _onDeath = () =>
             {
                 _isDead = true;
+                _collider.enabled = false;
                 CGameManager.Instance.OnChaosWin -= OnChaosWin_Run;
                 CGameManager.Instance.RemoveCitySide(this);
                 _navMeshAgent.SetDestination(_cachedTransform.position);
@@ -38,11 +43,11 @@
             }
         }
 
-        protected override void Update()
+        public override void MyUpdate()
         {
             _target = CGameManager.Instance.GetClosesChaosUnit(_cachedTransform.position);
             
-            base.Update();
+            base.MyUpdate();
         }
     }
 }

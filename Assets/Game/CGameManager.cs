@@ -69,6 +69,19 @@ namespace Game
             Instance = this;
         }
 
+        private void Update()
+        {
+            for (int i = 0; i < _chaosSide.Count; i++)
+            {
+                _chaosSide[i].MyUpdate();
+            }
+            
+            for (int i = 0; i < _citySide.Count; i++)
+            {
+                _citySide[i].MyUpdate();
+            }
+        }
+
         private CBaseCharacter GetClosestUnit(List<CBaseCharacter> units, Vector3 position)
         {
             if (units.Count <= 0)

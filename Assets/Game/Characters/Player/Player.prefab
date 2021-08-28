@@ -26,8 +26,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456625515}
-  m_LocalRotation: {x: 0.080895185, y: -0, z: -0, w: 0.99672264}
-  m_LocalPosition: {x: 0, y: 1.958, z: -7}
+  m_LocalRotation: {x: 0.13573201, y: -0.01252566, z: 0.0017161531, w: 0.99066496}
+  m_LocalPosition: {x: 320.89288, y: 0.838, z: 264.13406}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6507539056364166586}
@@ -236,8 +236,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2114409458}
-  m_LocalRotation: {x: 0.080895185, y: -0, z: -0, w: 0.99672264}
-  m_LocalPosition: {x: 0, y: 1.958, z: -7}
+  m_LocalRotation: {x: 0.07245194, y: -0, z: -0, w: 0.9973719}
+  m_LocalPosition: {x: 0, y: 1.458, z: -4.666667}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 612929178}
@@ -503,7 +503,7 @@ Transform:
   m_GameObject: {fileID: 6507539056364166591}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.98, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 8798004028148455597}
   - {fileID: 8329841859352084143}
@@ -534,8 +534,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1bcd1e9e019445d4ba92b07ac5681905, type: 3}
   _deathSfx:
   - {fileID: 8300000, guid: 6811042fa4fb4844aa5882ace7904589, type: 3}
-  _maxHp: 10000
-  _damage: 2000
+  _maxHp: 1100
+  _damage: 66.666
   _attackDelay: 0.8
   _restAnimationDuration: 0.7
   _deathDelay: 4
@@ -546,10 +546,10 @@ MonoBehaviour:
   _attackSfx:
   - {fileID: 8300000, guid: 13182107f288fdc47a11f9216c8f062b, type: 3}
   - {fileID: 8300000, guid: 7053294e066eb1945baa4d9cc9194f15, type: 3}
-  _movementSpeed: 20
+  _movementSpeed: 8
   _rotationSpeed: 150
-  _attackRadius: 3
-  _attackAngle: 30
+  _attackRadius: 6
+  _attackAngle: 35
   _minCameraAngle: -30
   _maxCameraAngle: 45
 --- !u!143 &6507539056364166590

@@ -31,7 +31,7 @@ namespace Game.Characters.AI.King
             };
         }
 
-        protected override void Update()
+        public override void MyUpdate()
         {
             if (!_isGameOver)
                 _target = (_player.transform.position - _cachedTransform.position).sqrMagnitude
@@ -39,7 +39,7 @@ namespace Game.Characters.AI.King
                     ? _player
                     : CGameManager.Instance.GetClosesChaosUnit(_cachedTransform.position);
             
-            base.Update();
+            base.MyUpdate();
         }
     }
 }

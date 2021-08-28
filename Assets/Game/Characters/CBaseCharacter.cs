@@ -27,13 +27,15 @@ namespace Game.Characters
 
         public void ApplyDamage(float damage, AudioClip impactSfx)
         {
-            _impactAudioSource.clip = impactSfx;
-            _impactAudioSource.Play();
-            
             if ((_actualHp -= damage) <= 0)
                 _die?.Invoke();
             else
+            {
                 _animationController.PlayTakeHit();
+                
+                _impactAudioSource.clip = impactSfx;
+                _impactAudioSource.Play();
+            }
 
             _hpBarController.UpdateUi(_actualHp / _maxHp);
         }
@@ -42,11 +44,6 @@ namespace Game.Characters
         {
             _actualHp = _maxHp;
             _die = () => StartCoroutine(OnDie());
-        }
-
-        protected virtual void Update()
-        {
-            _onUpdateAction?.Invoke();
         }
 
         protected IEnumerator Attack(CBaseCharacter target, Action onUpdateAfterAttack)
@@ -109,6 +106,11 @@ namespace Game.Characters
                 StopCoroutine(_attackCoroutine);
                 _attackCoroutine = null;
             }
+        }
+
+        public virtual void MyUpdate()
+        {
+            _onUpdateAction?.Invoke();
         }
     }
 }
