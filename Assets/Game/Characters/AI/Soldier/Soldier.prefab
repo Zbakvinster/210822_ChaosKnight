@@ -72,9 +72,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 754db7fccd83e4444a9f78257ac09659, type: 3}
   _maxHp: 200
   _damage: 5
-  _attackDelay: 0.5
-  _restAnimationDuration: 0.3
-  _deathDelay: 3
+  _attackDelay: 0.8
+  _restAnimationDuration: 0.7
+  _deathDelay: 7
   _navMeshAgent: {fileID: 1378065105345300279}
   _aggroDistance: 180
 --- !u!195 &1378065105345300279
@@ -91,7 +91,7 @@ NavMeshAgent:
   m_Acceleration: 130
   avoidancePriority: 50
   m_AngularSpeed: 10000
-  m_StoppingDistance: 3
+  m_StoppingDistance: 4
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

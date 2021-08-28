@@ -60,9 +60,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b20b695de19e3754c9b9d4bd85967374, type: 3}
   _maxHp: 15
   _damage: 3
-  _attackDelay: 0.5
-  _restAnimationDuration: 0.5
-  _deathDelay: 3
+  _attackDelay: 0.8
+  _restAnimationDuration: 0.8
+  _deathDelay: 7
   _navMeshAgent: {fileID: 1656951832781739918}
   _aggroDistance: 150
 --- !u!195 &1656951832781739918

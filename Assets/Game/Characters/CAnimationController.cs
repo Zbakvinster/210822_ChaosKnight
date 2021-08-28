@@ -16,7 +16,11 @@ namespace Game.Characters
 
         public void PlayRun(bool play) => _animator.SetBool(IsRunning, play);
 
-        public void PlayTakeHit() => _animator.SetTrigger(TakeHit);
+        public void PlayTakeHit()
+        {
+            if (!_animator.GetBool(IsAttacking))
+                _animator.SetTrigger(TakeHit);
+        }
 
         public void PlayDie()
         {

@@ -26,8 +26,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456625515}
-  m_LocalRotation: {x: -0.08871815, y: 0.77717745, z: 0.11252509, w: 0.61275}
-  m_LocalPosition: {x: -166.7034, y: -1.222, z: 10.416668}
+  m_LocalRotation: {x: 0.080895185, y: -0, z: -0, w: 0.99672264}
+  m_LocalPosition: {x: 0, y: 1.958, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6507539056364166586}
@@ -236,8 +236,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2114409458}
-  m_LocalRotation: {x: 0.12873681, y: -0, z: -0, w: 0.99167883}
-  m_LocalPosition: {x: 0, y: 1.958, z: -3.5}
+  m_LocalRotation: {x: 0.080895185, y: -0, z: -0, w: 0.99672264}
+  m_LocalPosition: {x: 0, y: 1.958, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 612929178}
@@ -536,8 +536,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6811042fa4fb4844aa5882ace7904589, type: 3}
   _maxHp: 10000
   _damage: 2000
-  _attackDelay: 1
-  _restAnimationDuration: 1
+  _attackDelay: 0.8
+  _restAnimationDuration: 0.7
   _deathDelay: 4
   _characterController: {fileID: 6507539056364166590}
   _cachedGraphicsTransform: {fileID: 8798004028148455597}
@@ -552,8 +552,6 @@ MonoBehaviour:
   _attackAngle: 30
   _minCameraAngle: -30
   _maxCameraAngle: 45
-  _minCamDis: 0
-  _maxCamDis: 0
 --- !u!143 &6507539056364166590
 CharacterController:
   m_ObjectHideFlags: 0

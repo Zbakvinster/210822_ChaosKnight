@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Cinemachine;
 using UnityEngine;
 
 namespace Game.Characters.Player
@@ -17,6 +16,12 @@ namespace Game.Characters.Player
         [SerializeField] private float _attackAngle;
         [SerializeField] private float _minCameraAngle;
         [SerializeField] private float _maxCameraAngle;
+
+        public float CameraSensitivity
+        {
+            get => _rotationSpeed;
+            set => _rotationSpeed = value;
+        }
 
         private const float GRAVITY = 9.8f;
         private float _fallSpeed;
@@ -59,7 +64,6 @@ namespace Game.Characters.Player
                     _cachedCamRotX -= Input.GetAxis("Mouse Y") * _rotationSpeed * Time.deltaTime,
                     _minCameraAngle,
                     _maxCameraAngle);
-                Debug.Log(_cachedCamRotX);
                 
                 camRot.x = _cachedCamRotX;
                 

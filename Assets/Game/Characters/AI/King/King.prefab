@@ -244,7 +244,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 23f610320cabcf047bec0c94ae0456dc, type: 3}
   _deathSfx:
   - {fileID: 8300000, guid: 6d4a8c46038c6d64c91c1614c6f3addb, type: 3}
-  _maxHp: 200
+  _maxHp: 1000
   _damage: 10
   _attackDelay: 0.3
   _restAnimationDuration: 0.2
