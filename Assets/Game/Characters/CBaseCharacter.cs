@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Game.Characters
 {
@@ -8,6 +10,8 @@ namespace Game.Characters
     {
         [SerializeField] protected CAnimationController _animationController;
         [SerializeField] private CHpBarController _hpBarController;
+        [SerializeField] protected AudioSource _impactAudioSource;
+        [SerializeField] protected List<AudioClip> _attackImpactSfx;
         [SerializeField] private float _maxHp;
         [SerializeField] protected float _damage;
         [SerializeField] private float _attackDelay;
@@ -20,8 +24,11 @@ namespace Game.Characters
         protected Action _onDeath;
         protected Coroutine _attackCoroutine;
 
-        public void ApplyDamage(float damage)
+        public void ApplyDamage(float damage, AudioClip impactSfx)
         {
+            _impactAudioSource.clip = impactSfx;
+            _impactAudioSource.Play();
+            
             if ((_actualHp -= damage) <= 0)
                 _die?.Invoke();
             else
@@ -46,7 +53,7 @@ namespace Game.Characters
             return Attack(
                 () =>
                 {
-                    target.ApplyDamage(_damage);
+                    target.ApplyDamage(_damage, _attackImpactSfx[Random.Range(0, _attackImpactSfx.Count)]);
                     
                     Vector3 forwardVec = target.transform.position - transform.position;
                     forwardVec.y = 0;

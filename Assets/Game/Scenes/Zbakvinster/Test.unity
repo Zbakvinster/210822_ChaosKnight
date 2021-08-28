@@ -631,6 +631,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 456625518, guid: bf12bdbe197113a449f4390fe2d74d9b, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 456625518, guid: bf12bdbe197113a449f4390fe2d74d9b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456625518, guid: bf12bdbe197113a449f4390fe2d74d9b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.9579926
+      objectReference: {fileID: 0}
+    - target: {fileID: 456625518, guid: bf12bdbe197113a449f4390fe2d74d9b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 456625518, guid: bf12bdbe197113a449f4390fe2d74d9b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9916788
+      objectReference: {fileID: 0}
+    - target: {fileID: 456625518, guid: bf12bdbe197113a449f4390fe2d74d9b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.12873694
+      objectReference: {fileID: 0}
+    - target: {fileID: 456625518, guid: bf12bdbe197113a449f4390fe2d74d9b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456625518, guid: bf12bdbe197113a449f4390fe2d74d9b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2114409460, guid: bf12bdbe197113a449f4390fe2d74d9b, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2114409460, guid: bf12bdbe197113a449f4390fe2d74d9b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.9579926
+      objectReference: {fileID: 0}
+    - target: {fileID: 2114409460, guid: bf12bdbe197113a449f4390fe2d74d9b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9916788
+      objectReference: {fileID: 0}
+    - target: {fileID: 2114409460, guid: bf12bdbe197113a449f4390fe2d74d9b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.12873694
+      objectReference: {fileID: 0}
     - target: {fileID: 3953344361986129033, guid: bf12bdbe197113a449f4390fe2d74d9b, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -639,6 +687,18 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6507539056364166585, guid: bf12bdbe197113a449f4390fe2d74d9b, type: 3}
+      propertyPath: _attackAudioSource
+      value: 
+      objectReference: {fileID: 1980146847}
+    - target: {fileID: 6507539056364166585, guid: bf12bdbe197113a449f4390fe2d74d9b, type: 3}
+      propertyPath: _attackVfx.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507539056364166585, guid: bf12bdbe197113a449f4390fe2d74d9b, type: 3}
+      propertyPath: _attackVfx.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: b1a8aa9aa30a5c9489254cbc8b2af365, type: 3}
     - target: {fileID: 6507539056364166586, guid: bf12bdbe197113a449f4390fe2d74d9b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -687,8 +747,113 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9069647135164821310, guid: bf12bdbe197113a449f4390fe2d74d9b, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf12bdbe197113a449f4390fe2d74d9b, type: 3}
+--- !u!1 &1980146846 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6507539056364166591, guid: bf12bdbe197113a449f4390fe2d74d9b, type: 3}
+  m_PrefabInstance: {fileID: 1980146845}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1980146847
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980146846}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &8947340678024904233
 PrefabInstance:
   m_ObjectHideFlags: 0

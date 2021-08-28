@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Characters.Player
@@ -7,6 +8,8 @@ namespace Game.Characters.Player
         [SerializeField] private CharacterController _characterController;
         [SerializeField] private Transform _cachedGraphicsTransform;
         [SerializeField] private Transform _cameraFollowTarget;
+        [SerializeField] private AudioSource _attackAudioSource;
+        [SerializeField] private List<AudioClip> _attackSfx;
         [SerializeField] private float _movementSpeed;
         [SerializeField] private float _rotationSpeed;
         [SerializeField] private float _attackRadius;
@@ -97,6 +100,9 @@ namespace Game.Characters.Player
                 _attackCoroutine = StartCoroutine(Attack(
                     () =>
                     {
+                        _attackAudioSource.clip = _attackSfx[Random.Range(0, _attackSfx.Count)];
+                        _attackAudioSource.Play();
+
                         int targetCount = Physics.CapsuleCastNonAlloc(
                             _cachedGraphicsTransform.position + Vector3.down,
                             _cachedGraphicsTransform.position + Vector3.up,
@@ -112,7 +118,7 @@ namespace Game.Characters.Player
                                     _cachedGraphicsTransform.forward,
                                     _targets[i].transform.position - _cachedGraphicsTransform.position)
                                 > _dotAngle)
-                                _targets[i].collider.GetComponent<CBaseCharacter>().ApplyDamage(_damage);
+                                _targets[i].collider.GetComponent<CBaseCharacter>().ApplyDamage(_damage, _attackImpactSfx[Random.Range(0, _attackImpactSfx.Count)]);
                         }
                     },
                     OnUpdate));
